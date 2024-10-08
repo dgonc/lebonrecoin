@@ -33,6 +33,17 @@ VALUES (
         "Auxerre",
         "david@gmail.com",
         "bgdu89"
+    ),
+    (
+        "Le",
+        "User",
+        "0707070707",
+        "7ter",
+        "rue de la tarte",
+        "89250",
+        "Gurgy",
+        "le_user@gmail.com",
+        "userdu89"
     );
 
 create table item (
@@ -82,7 +93,7 @@ VALUES (
     'laptop_pro_max_2.jpg',
     'laptop_pro_max_3.jpg',
     NULL,
-    1
+    2
 ),
 
 (
@@ -106,7 +117,7 @@ VALUES (
     NULL,
     NULL,
     NULL,
-    1
+    2
 ),
 
 (
@@ -130,7 +141,7 @@ VALUES (
     'tv_4k_55_2.jpg',
     'tv_4k_55_3.jpg',
     NULL,
-    1
+    2
 ),
 
 (
@@ -154,7 +165,7 @@ VALUES (
     'sac_randonnée_2.jpg',
     NULL,
     NULL,
-    1
+    2
 ),
 
 (
@@ -178,5 +189,5 @@ VALUES (
     'velo_electrique_cityx_2.jpg',
     'velo_electrique_cityx_3.jpg',
     NULL,
-    1
+    2
 );
