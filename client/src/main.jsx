@@ -3,12 +3,14 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import App from "./App";
+import UserDashoard from "./pages/UserDashboard";
+import { addItems } from "./services/request";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />,
+    path: "/user",
+    element: <UserDashoard />,
+    action: addItems,
   },
 ]);
 
