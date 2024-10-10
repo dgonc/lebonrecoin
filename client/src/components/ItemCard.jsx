@@ -21,7 +21,7 @@ ItemCard.propTypes = {
   item: PropTypes.shape({
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+    price: PropTypes.string.isRequired,
     picture_1: PropTypes.string,
     lastname: PropTypes.string.isRequired,
     firstname: PropTypes.string.isRequired,

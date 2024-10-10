@@ -16,6 +16,7 @@ const router = createBrowserRouter([
   {
     path: "/user",
     element: <UserDashoard />,
+    loader: getItems,
     action: addItems,
   },
 ]);
