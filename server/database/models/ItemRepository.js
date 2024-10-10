@@ -46,7 +46,10 @@ class ItemRepository extends AbstractRepository {
 
   async readAll() {
     // Execute the SQL SELECT query to retrieve all items from the "item" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    const [rows] = await this.database
+      .query(`SELECT item.id, item.name, item.description, item.price, item.picture_1, item.picture_2, item.picture_3, item.picture_4, item.publication_date, user.lastname, user.firstname, user.city, user.phone, user.email
+FROM ${this.table}
+    INNER JOIN user ON user_id = user.id`);
 
     // Return the array of items
     return rows;
