@@ -1,13 +1,33 @@
 import PropTypes from "prop-types";
 import ItemCard from "./ItemCard";
 
-export default function UserItems({ items }) {
+import "../styles/userItems.css";
+
+export default function UserItems({ items, currentUrl, setSelectItem }) {
+  const handleSelectItem = (currentItem) => {
+    setSelectItem(currentItem);
+  };
+
   return (
     <>
-      <h1>My Items Online</h1>
-      {items.map((item) => (
-        <ItemCard key={item.id} item={item} />
-      ))}
+      <h3>My Items Online</h3>
+      <div className="items-online-container">
+        {items.map((item) => (
+          <div key={item.id}>
+            <ItemCard
+              item={item}
+              currentUrl={currentUrl}
+              setSelectItem={setSelectItem}
+            />
+            <div>
+              <button type="button" onClick={() => handleSelectItem(item)}>
+                Edit
+              </button>
+              <button type="button">Delete</button>
+            </div>
+          </div>
+        ))}
+      </div>
     </>
   );
 }
@@ -24,4 +44,6 @@ UserItems.propTypes = {
       firstname: PropTypes.string.isRequired,
     })
   ).isRequired,
+  currentUrl: PropTypes.string.isRequired,
+  setSelectItem: PropTypes.func.isRequired,
 };

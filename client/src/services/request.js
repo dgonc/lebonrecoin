@@ -51,3 +51,13 @@ export async function addItems({ request }) {
   }
   return null;
 }
+
+export async function editItem() {
+  try {
+    await axios.put(`${import.meta.env.VITE_API_URL}/api/:id`);
+    return console.info("item change");
+  } catch (error) {
+    console.error(error);
+    return console.info("edit error");
+  }
+}

@@ -36,7 +36,7 @@ class ItemRepository extends AbstractRepository {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `SELECT item.name, item.description, item.price, item.publication_date, user.lastname, user.firstname
+      `SELECT item.id, item.name, item.description, item.price, item.publication_date, item.picture_1, item.picture_2, item.picture_3, item.picture_4, user.lastname, user.firstname
 FROM ${this.table}
     INNER JOIN user ON user_id = user.id
 WHERE
@@ -60,11 +60,26 @@ FROM ${this.table}
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
 
-  // async update(item) {
-  //   ...
-  // }
+  async update(item) {
+    const [result] = await this.database.query(
+      `UPDATE ${this.table}
+      SET
+          name = ?,
+          description = "vous reveil le matin",
+          price = 1,
+          publication_date = "2024-10-10",
+          picture_1 = null,
+          picture_2 = NULL,
+          picture_3 = NULL,
+          picture_4 = NULL
+      WHERE
+          id = ?;`,
+      [item.name, item.id]
+    );
+
+    return result.affectedRows;
+  }
 
   // The D of CRUD - Delete operation
   // TODO: Implement the delete operation to remove an item by its ID

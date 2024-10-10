@@ -1,0 +1,13 @@
+.items-online-container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.item-card {
+  width: 30svh;
+}
+
+.item-card > img {
+  width: 100%;
+}
