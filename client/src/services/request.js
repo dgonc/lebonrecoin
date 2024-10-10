@@ -10,6 +10,16 @@ export function getItems() {
     });
 }
 
+export function getItemsByUser({ params }) {
+  return axios
+    .get(`${import.meta.env.VITE_API_URL}/api/${params.id}`)
+    .then((response) => response.data)
+    .catch((error) => {
+      console.error(error);
+      return [];
+    });
+}
+
 export async function addItems({ request }) {
   try {
     const formData = await request.formData();

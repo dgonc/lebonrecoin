@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home";
 import UserDashoard from "./pages/UserDashboard";
-import { getItems, addItems } from "./services/request";
+import { getItems, getItemsByUser, addItems } from "./services/request";
 
 const router = createBrowserRouter([
   {
@@ -14,9 +14,9 @@ const router = createBrowserRouter([
     loader: getItems,
   },
   {
-    path: "/user",
+    path: "/user/:id",
     element: <UserDashoard />,
-    loader: getItems,
+    loader: getItemsByUser,
     action: addItems,
   },
 ]);
