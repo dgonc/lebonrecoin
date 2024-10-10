@@ -3,9 +3,10 @@ import axios from "axios";
 export function getItems() {
   return axios
     .get(`${import.meta.env.VITE_API_URL}/api/`)
-    .then((response) => console.info(response))
+    .then((response) => response.data)
     .catch((error) => {
       console.error(error);
+      return [];
     });
 }
 
