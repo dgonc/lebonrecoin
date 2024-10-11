@@ -52,12 +52,10 @@ export async function addItems({ request }) {
   return null;
 }
 
-export async function editItem() {
+export async function editItem(item) {
   try {
-    await axios.put(`${import.meta.env.VITE_API_URL}/api/:id`);
-    return console.info("item change");
+    await axios.put(`${import.meta.env.VITE_API_URL}/api/${item.id}`, item);
   } catch (error) {
     console.error(error);
-    return console.info("edit error");
   }
 }

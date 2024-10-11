@@ -4,8 +4,6 @@ import { useParams } from "react-router-dom";
 export default function ItemCard({ item, currentUrl }) {
   const currentId = useParams();
 
-  console.info(item.picture_1);
-
   return (
     <section className="item-card">
       <h2>{item.name}</h2>
