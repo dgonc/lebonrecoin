@@ -36,10 +36,9 @@ const read = async (req, res, next) => {
 
 // The E of BREAD - Edit (Update) operation
 const edit = async (req, res, next) => {
-  // const item = {...req.body}
-
+  const item = { ...req.body, id: req.params.id };
   try {
-    const result = await tables.item.update();
+    const result = await tables.item.update(item);
     res.status(200).json(result);
   } catch (error) {
     next(error);
@@ -64,7 +63,15 @@ const add = async (req, res, next) => {
 };
 
 // The D of BREAD - Destroy (Delete) operation
-// This operation is not yet implemented
+const destroy = async (req, res, next) => {
+  try {
+    const itemId = req.params.id;
+    await tables.item.delete(itemId);
+    res.sendStatus(201);
+  } catch (error) {
+    next(error);
+  }
+};
 
 // Ready to export the controller functions
 module.exports = {
@@ -72,5 +79,5 @@ module.exports = {
   read,
   edit,
   add,
-  // destroy,
+  destroy,
 };

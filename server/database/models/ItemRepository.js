@@ -66,27 +66,40 @@ FROM ${this.table}
       `UPDATE ${this.table}
       SET
           name = ?,
-          description = "vous reveil le matin",
-          price = 1,
-          publication_date = "2024-10-10",
-          picture_1 = null,
-          picture_2 = NULL,
-          picture_3 = NULL,
-          picture_4 = NULL
+          description = ?,
+          price = ?,
+          publication_date = ?,
+          picture_1 = ?,
+          picture_2 = ?,
+          picture_3 = ?,
+          picture_4 = ?
       WHERE
           id = ?;`,
-      [item.name, item.id]
+      [
+        item.name,
+        item.description,
+        item.price,
+        item.publication_date,
+        item.picture_1,
+        item.picture_2,
+        item.picture_3,
+        item.picture_4,
+        item.id,
+      ]
     );
 
     return result.affectedRows;
   }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
 
-  // async delete(id) {
-  //   ...
-  // }
+  async delete(id) {
+    const [result] = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id = ?;`,
+      [id]
+    );
+    return result.affectedRows;
+  }
 }
 
 module.exports = ItemRepository;
