@@ -1,4 +1,4 @@
-import { Form } from "react-router-dom";
+import { Form, useParams } from "react-router-dom";
 // import { notifySuccess, notifyError } from "../services/utils";
 
 export default function AddItems() {
@@ -7,6 +7,7 @@ export default function AddItems() {
   // } else {
   //   notifyError();
   // }
+  const userId = useParams().id;
 
   return (
     <Form method="post">
@@ -27,8 +28,14 @@ export default function AddItems() {
         <input type="text" id="picture_3" name="picture_3" />
         <label htmlFor="picture_4">Picture 4</label>
         <input type="text" id="picture_4" name="picture_4" />
-        <label htmlFor="user_id">User</label>
-        <input type="text" id="user_id" name="user_id" />
+        {/* <label htmlFor="user_id">User</label> */}
+        <input
+          type="text"
+          id="user_id"
+          name="user_id"
+          hidden
+          defaultValue={userId}
+        />
         <button type="submit">Share</button>
       </section>
     </Form>

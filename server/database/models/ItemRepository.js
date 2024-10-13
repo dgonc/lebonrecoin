@@ -36,12 +36,16 @@ class ItemRepository extends AbstractRepository {
   async read(id) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
+      `SELECT item.id, item.name, item.description, item.price, item.publication_date, item.picture_1, item.picture_2, item.picture_3, item.picture_4, user.lastname, user.firstname
+FROM ${this.table}
+    INNER JOIN user ON user_id = user.id
+WHERE
+    user_id = ?;`,
       [id]
     );
 
     // Return the first row of the result, which represents the item
-    return rows[0];
+    return rows;
   }
 
   async readAll() {
@@ -56,18 +60,44 @@ FROM ${this.table}
   }
 
   // The U of CRUD - Update operation
-  // TODO: Implement the update operation to modify an existing item
 
-  // async update(item) {
-  //   ...
-  // }
+  async update(item) {
+    const [result] = await this.database.query(
+      `UPDATE ${this.table}
+      SET
+          name = ?,
+          description = ?,
+          price = ?,
+          picture_1 = ?,
+          picture_2 = ?,
+          picture_3 = ?,
+          picture_4 = ?
+      WHERE
+          id = ?;`,
+      [
+        item.name,
+        item.description,
+        item.price,
+        item.picture_1,
+        item.picture_2,
+        item.picture_3,
+        item.picture_4,
+        item.id,
+      ]
+    );
+
+    return result.affectedRows;
+  }
 
   // The D of CRUD - Delete operation
-  // TODO: Implement the delete operation to remove an item by its ID
 
-  // async delete(id) {
-  //   ...
-  // }
+  async delete(id) {
+    const [result] = await this.database.query(
+      `DELETE FROM ${this.table} WHERE id = ?;`,
+      [id]
+    );
+    return result.affectedRows;
+  }
 }
 
 module.exports = ItemRepository;
