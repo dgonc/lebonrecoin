@@ -7,30 +7,25 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const {
-  browse,
-  read,
-  searchItem,
-  add,
-  edit,
-  destroy,
-} = require("./controllers/itemActions");
+const itemActions = require("./controllers/itemActions");
+const userActions = require("./controllers/userActions");
 
 // Route to get a list of items
-router.get("/", browse);
+router.get("/", itemActions.browse);
+router.get("/user", userActions.browse);
 
 // Route to get a specific item by ID
-router.get("/:id", read);
-router.get("/item/:id", searchItem);
+router.get("/:id", itemActions.read);
+router.get("/item/:name", itemActions.searchItem);
 
 // Route to add a new item
-router.post("/", add);
+router.post("/", itemActions.add);
 
 // Route to edit an item
-router.put("/:id", edit);
+router.put("/:id", itemActions.edit);
 
 // Route to delete an item
-router.delete("/:id", destroy);
+router.delete("/:id", itemActions.destroy);
 
 /* ************************************************************************* */
 

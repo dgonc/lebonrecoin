@@ -11,8 +11,6 @@ import addSquare from "../assets/images/Plus_square.png";
 export default function UserDashoard() {
   const items = useLoaderData();
 
-  console.info("depuis dashboard", items[0].name.includes("h"));
-
   const [currentUrl, setCurrentUrl] = useState("");
   const [selectItem, setSelectItem] = useState([]);
   const [showEdit, setShowEdit] = useState(false);

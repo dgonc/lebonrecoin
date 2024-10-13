@@ -5,8 +5,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import App from "./App";
 import UserDashoard from "./pages/UserDashboard";
+import Login from "./pages/Login";
 import "./styles/home.css";
-import { getItems, getItemsByUser, addItems } from "./services/request";
+import {
+  getItems,
+  getItemsByUser,
+  getUsers,
+  addItems,
+} from "./services/request";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +20,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
+        element: <Login />,
+        loader: getUsers,
+      },
+      {
+        path: "/home",
         element: <Home />,
         loader: getItems,
       },
