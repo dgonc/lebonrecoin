@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 
 export default function ItemCard({ item, currentUrl }) {
-  const currentId = useParams();
+  const currentId = useParams().id;
 
   return (
     <section className="item-card">
@@ -10,7 +10,7 @@ export default function ItemCard({ item, currentUrl }) {
       <p>{item.description}</p>
       <div>{item.price} €</div>
       <img src={item.picture_1} alt="" />
-      {currentUrl === `http://localhost:3000/user/${currentId.id}` ? (
+      {currentUrl === `http://localhost:3000/user/${currentId}` ? (
         ""
       ) : (
         <div>

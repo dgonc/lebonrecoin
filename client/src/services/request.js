@@ -59,3 +59,12 @@ export async function editItem(item) {
     console.error(error);
   }
 }
+
+export async function deleteItem(item) {
+  console.info("depuis request", item);
+  try {
+    await axios.delete(`${import.meta.env.VITE_API_URL}/api/${item.id}`, item);
+  } catch (error) {
+    console.error(error);
+  }
+}

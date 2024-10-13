@@ -4,7 +4,12 @@ import { useEffect, useState } from "react";
 
 import { editItem } from "../services/request";
 
-export default function EditItem({ selectItem }) {
+export default function EditItem({
+  selectItem,
+  showEdit,
+  setShowEdit,
+  reloadData,
+}) {
   const [editValues, setEditValues] = useState(selectItem);
 
   useEffect(() => {
@@ -25,8 +30,12 @@ export default function EditItem({ selectItem }) {
     }
   };
 
+  if (!showEdit) {
+    return null;
+  }
+
   return (
-    <>
+    <div>
       <h2>Edit Item</h2>
       <section className="form-container">
         <label htmlFor="name">Item Name</label>
@@ -51,18 +60,6 @@ export default function EditItem({ selectItem }) {
           id="price"
           name="price"
           defaultValue={editValues.price}
-          onChange={handleEditForm}
-        />
-        <label htmlFor="publication_date">Edit Date</label>
-        <input
-          type="date"
-          id="publication_date"
-          name="publication_date"
-          defaultValue={
-            !editValues.publication_date
-              ? ""
-              : editValues.publication_date.slice(0, 10)
-          }
           onChange={handleEditForm}
         />
         <label htmlFor="picture_1">Picture 1</label>
@@ -97,11 +94,20 @@ export default function EditItem({ selectItem }) {
           defaultValue={editValues.picture_4}
           onChange={handleEditForm}
         />
-        <button type="submit" onClick={editAction}>
+        <button
+          type="submit"
+          onClick={() => {
+            editAction();
+            reloadData();
+          }}
+        >
           Edit
         </button>
+        <button type="button" onClick={() => setShowEdit(false)}>
+          Close
+        </button>
       </section>
-    </>
+    </div>
   );
 }
 
@@ -116,4 +122,7 @@ EditItem.propTypes = {
     picture_3: PropTypes.string,
     picture_4: PropTypes.string,
   }).isRequired,
+  showEdit: PropTypes.bool.isRequired,
+  setShowEdit: PropTypes.func.isRequired,
+  reloadData: PropTypes.func.isRequired,
 };

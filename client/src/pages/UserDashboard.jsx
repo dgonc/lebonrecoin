@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import AddItems from "../components/AddItems";
@@ -12,8 +12,15 @@ export default function UserDashoard() {
 
   const [currentUrl, setCurrentUrl] = useState("");
   const [selectItem, setSelectItem] = useState([]);
+  const [showEdit, setShowEdit] = useState(false);
 
   useEffect(() => setCurrentUrl(document.URL), [setCurrentUrl]);
+
+  const navigate = useNavigate();
+
+  const reloadData = () => {
+    navigate(0);
+  };
 
   return (
     <>
@@ -22,10 +29,19 @@ export default function UserDashoard() {
       <UserItems
         items={items}
         currentUrl={currentUrl}
+        selectItem={selectItem}
         setSelectItem={setSelectItem}
+        setShowEdit={setShowEdit}
+        reloadData={reloadData}
       />
       <AddItems />
-      <EditItem selectItem={selectItem} />
+      <EditItem
+        selectItem={selectItem}
+        setSelectItem={setSelectItem}
+        showEdit={showEdit}
+        setShowEdit={setShowEdit}
+        reloadData={reloadData}
+      />
       <div className="separator" />
     </>
   );

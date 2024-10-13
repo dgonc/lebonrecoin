@@ -1,11 +1,32 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
+
 import ItemCard from "./ItemCard";
 
 import "../styles/userItems.css";
+import { deleteItem } from "../services/request";
+import DeleteModal from "./DeleteModal";
 
-export default function UserItems({ items, currentUrl, setSelectItem }) {
+export default function UserItems({
+  items,
+  currentUrl,
+  selectItem,
+  setSelectItem,
+  setShowEdit,
+  reloadData,
+}) {
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
   const handleSelectItem = (currentItem) => {
     setSelectItem(currentItem);
+  };
+
+  const deleteAction = async () => {
+    try {
+      await deleteItem(selectItem);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -20,13 +41,34 @@ export default function UserItems({ items, currentUrl, setSelectItem }) {
               setSelectItem={setSelectItem}
             />
             <div>
-              <button type="button" onClick={() => handleSelectItem(item)}>
+              <button
+                type="button"
+                onClick={() => {
+                  handleSelectItem(item);
+                  setShowEdit(true);
+                }}
+              >
                 Edit
               </button>
-              <button type="button">Delete</button>
+              <button
+                type="button"
+                onClick={() => {
+                  handleSelectItem(item);
+                  setShowDeleteModal(!showDeleteModal);
+                }}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ))}
+        {showDeleteModal ? (
+          <DeleteModal
+            deleteAction={deleteAction}
+            setShowDeleteModal={setShowDeleteModal}
+            reloadData={reloadData}
+          />
+        ) : null}
       </div>
     </>
   );
@@ -46,4 +88,7 @@ UserItems.propTypes = {
   ).isRequired,
   currentUrl: PropTypes.string.isRequired,
   setSelectItem: PropTypes.func.isRequired,
+  selectItem: PropTypes.arrayOf.isRequired,
+  setShowEdit: PropTypes.func.isRequired,
+  reloadData: PropTypes.func.isRequired,
 };
