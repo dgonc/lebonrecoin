@@ -1,0 +1,14 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-button {
+  margin: 8px;
+  border-style: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  font-size: larger;
+  gap: 1rem;
+}

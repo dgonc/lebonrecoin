@@ -1,5 +1,14 @@
-function App() {
-  return <h1>LeBonReCoin</h1>;
-}
+import { Outlet } from "react-router-dom";
 
-export default App;
+import Navbar from "./components/Navbar";
+
+export default function App() {
+  return (
+    <>
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
+    </>
+  );
+}

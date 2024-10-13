@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <>
-      <h1>Home</h1>
+      <h1>LebonRecoin</h1>
       <section className="items-online-container">
         {items.map((item) => (
           <ItemCard key={item.id} item={item} />
