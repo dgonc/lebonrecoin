@@ -2,12 +2,18 @@
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .item-card {
-  width: 30svh;
+  width: 20svh;
 }
 
 .item-card > img {
   width: 100%;
+}
+
+.edit-button {
+  display: flex;
+  justify-content: space-evenly;
 }

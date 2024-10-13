@@ -6,6 +6,7 @@ import EditItem from "../components/EditItem";
 import UserItems from "../components/UserItems";
 
 import "../styles/dashboard.css";
+import addSquare from "../assets/images/Plus_square.png";
 
 export default function UserDashoard() {
   const items = useLoaderData();
@@ -13,6 +14,7 @@ export default function UserDashoard() {
   const [currentUrl, setCurrentUrl] = useState("");
   const [selectItem, setSelectItem] = useState([]);
   const [showEdit, setShowEdit] = useState(false);
+  const [showAdd, setShowAdd] = useState(false);
 
   useEffect(() => setCurrentUrl(document.URL), [setCurrentUrl]);
 
@@ -22,9 +24,21 @@ export default function UserDashoard() {
     navigate(0);
   };
 
+  console.info(showAdd);
+
   return (
     <>
-      <h2 className="dashboard-title">My Announcements</h2>
+      <section className="dashboard-header">
+        <h2 className="dashboard-title">My Announcements</h2>
+        <button
+          className="add-button"
+          type="button"
+          onClick={() => setShowAdd(!showAdd)}
+        >
+          Add
+          <img src={addSquare} alt="button to add an item" />
+        </button>
+      </section>
       <div className="separator" />
       <UserItems
         items={items}
@@ -34,7 +48,7 @@ export default function UserDashoard() {
         setShowEdit={setShowEdit}
         reloadData={reloadData}
       />
-      <AddItems />
+      <AddItems showAdd={showAdd} setShowAdd={setShowAdd} />
       <EditItem
         selectItem={selectItem}
         setSelectItem={setSelectItem}
