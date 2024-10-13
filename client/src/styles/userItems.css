@@ -9,6 +9,12 @@
   width: 20svh;
 }
 
+.item-card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .item-card > img {
   width: 100%;
 }

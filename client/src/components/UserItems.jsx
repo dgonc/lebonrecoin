@@ -34,7 +34,7 @@ export default function UserItems({
       <h3>My Items Online</h3>
       <div className="items-online-container">
         {items.map((item) => (
-          <div key={item.id}>
+          <div key={item.id} className="item-card-container">
             <ItemCard item={item} currentUrl={currentUrl} />
             <div className="edit-button">
               <button
