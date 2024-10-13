@@ -35,12 +35,8 @@ export default function UserItems({
       <div className="items-online-container">
         {items.map((item) => (
           <div key={item.id}>
-            <ItemCard
-              item={item}
-              currentUrl={currentUrl}
-              setSelectItem={setSelectItem}
-            />
-            <div>
+            <ItemCard item={item} currentUrl={currentUrl} />
+            <div className="edit-button">
               <button
                 type="button"
                 onClick={() => {

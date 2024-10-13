@@ -1,13 +1,19 @@
+import PropTypes from "prop-types";
+
 import { Form, useParams } from "react-router-dom";
 // import { notifySuccess, notifyError } from "../services/utils";
 
-export default function AddItems() {
+export default function AddItems({ showAdd, setShowAdd }) {
   // if (status === 201) {
   //   notifySuccess();
   // } else {
   //   notifyError();
   // }
   const userId = useParams().id;
+
+  if (!showAdd) {
+    return null;
+  }
 
   return (
     <Form method="post">
@@ -36,8 +42,18 @@ export default function AddItems() {
           hidden
           defaultValue={userId}
         />
-        <button type="submit">Share</button>
+        <div className="share-button">
+          <button type="submit">Share</button>
+          <button type="button" onClick={() => setShowAdd(!showAdd)}>
+            Close
+          </button>
+        </div>
       </section>
     </Form>
   );
 }
+
+AddItems.propTypes = {
+  showAdd: PropTypes.bool.isRequired,
+  setShowAdd: PropTypes.func.isRequired,
+};

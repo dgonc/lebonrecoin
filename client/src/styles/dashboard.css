@@ -1,3 +1,25 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-button {
+  border-style: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  font-size: larger;
+}
+
+.share-button {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.separator {
+  border-top: 4px solid black;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
@@ -6,4 +28,26 @@
 .form-container button {
   width: fit-content;
   align-self: center;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.content-modal {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }

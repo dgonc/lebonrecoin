@@ -6,22 +6,24 @@ export default function DeleteModal({
   reloadData,
 }) {
   return (
-    <section className="delete-modal">
-      <p>confirm deletion</p>
-      <button
-        type="button"
-        onClick={() => {
-          deleteAction();
-          setShowDeleteModal();
-          reloadData();
-        }}
-      >
-        confirm
-      </button>
-      <button type="button" onClick={() => setShowDeleteModal()}>
-        Abort
-      </button>
-    </section>
+    <div className="modal-container">
+      <section className="content-modal">
+        <p>confirm deletion</p>
+        <button
+          type="button"
+          onClick={() => {
+            deleteAction();
+            setShowDeleteModal();
+            reloadData();
+          }}
+        >
+          confirm
+        </button>
+        <button type="button" onClick={() => setShowDeleteModal()}>
+          Abort
+        </button>
+      </section>
+    </div>
   );
 }
 
