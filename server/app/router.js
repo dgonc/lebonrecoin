@@ -10,6 +10,7 @@ const router = express.Router();
 const {
   browse,
   read,
+  searchItem,
   add,
   edit,
   destroy,
@@ -20,6 +21,7 @@ router.get("/", browse);
 
 // Route to get a specific item by ID
 router.get("/:id", read);
+router.get("/item/:id", searchItem);
 
 // Route to add a new item
 router.post("/", add);
