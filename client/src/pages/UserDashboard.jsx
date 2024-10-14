@@ -24,8 +24,6 @@ export default function UserDashoard() {
     navigate(0);
   };
 
-  console.info(showAdd);
-
   return (
     <>
       <section className="dashboard-header">

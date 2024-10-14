@@ -10,9 +10,29 @@ export function getItems() {
     });
 }
 
+export function getUsers() {
+  return axios
+    .get(`${import.meta.env.VITE_API_URL}/api/user`)
+    .then((response) => response.data)
+    .catch((error) => {
+      console.error(error);
+      return [];
+    });
+}
+
 export function getItemsByUser({ params }) {
   return axios
     .get(`${import.meta.env.VITE_API_URL}/api/${params.id}`)
+    .then((response) => response.data)
+    .catch((error) => {
+      console.error(error);
+      return [];
+    });
+}
+
+export function getItemByName({ search }) {
+  return axios
+    .get(`${import.meta.env.VITE_API_URL}/api/item/${search}`)
     .then((response) => response.data)
     .catch((error) => {
       console.error(error);
