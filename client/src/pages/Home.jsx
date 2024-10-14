@@ -8,7 +8,7 @@ export default function Home() {
 
   return (
     <>
-      <h1 className="title">LebonRecoin</h1>
+      <div className="separator-home" />
       <section className="items-online-container">
         {items.map((item) => (
           <div key={item.id} className="item-card-container">
@@ -16,6 +16,7 @@ export default function Home() {
           </div>
         ))}
       </section>
+      <div className="separator" />
     </>
   );
 }

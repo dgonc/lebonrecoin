@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import userAvatar from "../assets/images/user_avatar.png";
 import shoppingCart from "../assets/images/shopping_cart.png";
@@ -13,15 +14,19 @@ export default function Navbar() {
 
   return (
     <>
+      <Link to="/home" className="title">
+        LebonRecoin
+      </Link>
       <nav className="navbar">
-        <button type="button" className="navbar-button">
+        <Link to="/user/1" className="navbar-button">
           <img src={userAvatar} alt="" /> My account
-        </button>
+        </Link>
+
         <button type="button" className="navbar-button">
           My Basket <img src={shoppingCart} alt="" />
         </button>
       </nav>
-      <section>
+      <section className="search-bar-container">
         <label htmlFor="search-bar">
           <button type="submit">Search</button>
         </label>

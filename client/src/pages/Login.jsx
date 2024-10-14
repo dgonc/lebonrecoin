@@ -19,17 +19,17 @@ export default function Login() {
   console.info(email, password);
 
   return (
-    <>
-      <section>
+    <div className="login-container">
+      <section className="input-login-container">
         <label htmlFor="email">Email</label>
         <input type="text" id="email" onChange={handleEmail} />
         <label htmlFor="password">Password</label>
         <input type="text" id="password" onChange={handlePassword} />
       </section>
-      <section>
+      <section className="button-login-container">
         <Link to="/home">Connect</Link>
         <button type="button">Inscription</button>
       </section>
-    </>
+    </div>
   );
 }
