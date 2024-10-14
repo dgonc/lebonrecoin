@@ -18,23 +18,68 @@ export default function AddItems({ showAdd, setShowAdd }) {
   return (
     <Form method="post">
       <section className="form-container">
-        <label htmlFor="name">Item Name</label>
-        <input type="text" id="name" name="name" />
-        <label htmlFor="description">Description</label>
-        <input type="text" id="description" name="description" />
-        <label htmlFor="price">Price</label>
-        <input type="text" id="price" name="price" />
-        <label htmlFor="publication_date">Publication Date</label>
-        <input type="date" id="publication_date" name="publication_date" />
-        <label htmlFor="picture_1">Picture 1</label>
-        <input type="text" id="picture_1" name="picture_1" />
-        <label htmlFor="picture_2">Picture 2</label>
-        <input type="text" id="picture_2" name="picture_2" />
-        <label htmlFor="picture_3">Picture 3</label>
-        <input type="text" id="picture_3" name="picture_3" />
-        <label htmlFor="picture_4">Picture 4</label>
-        <input type="text" id="picture_4" name="picture_4" />
-        {/* <label htmlFor="user_id">User</label> */}
+        <div className="form-input">
+          <label htmlFor="name">Item Name</label>
+          <input type="text" id="name" className="add-input" name="name" />
+        </div>
+        <div className="form-input">
+          <label htmlFor="description">Description</label>
+          <input
+            type="text"
+            id="description"
+            className="add-input"
+            name="description"
+          />
+        </div>
+        <div className="form-input">
+          <label htmlFor="price">Price</label>
+          <input type="text" id="price" className="add-input" name="price" />
+        </div>
+        <div className="form-input">
+          <label htmlFor="publication_date">Publication Date</label>
+          <input
+            type="date"
+            id="publication_date"
+            className="add-input"
+            name="publication_date"
+          />
+        </div>
+        <div className="form-input">
+          <label htmlFor="picture_1">Picture 1</label>
+          <input
+            type="text"
+            id="picture_1"
+            className="add-input"
+            name="picture_1"
+          />
+        </div>
+        <div className="form-input">
+          <label htmlFor="picture_2">Picture 2</label>
+          <input
+            type="text"
+            id="picture_2"
+            className="add-input"
+            name="picture_2"
+          />
+        </div>
+        <div className="form-input">
+          <label htmlFor="picture_3">Picture 3</label>
+          <input
+            type="text"
+            id="picture_3"
+            className="add-input"
+            name="picture_3"
+          />
+        </div>
+        <div className="form-input">
+          <label htmlFor="picture_4">Picture 4</label>
+          <input
+            type="text"
+            id="picture_4"
+            className="add-input"
+            name="picture_4"
+          />
+        </div>
         <input
           type="text"
           id="user_id"
@@ -42,7 +87,7 @@ export default function AddItems({ showAdd, setShowAdd }) {
           hidden
           defaultValue={userId}
         />
-        <div className="share-button">
+        <div className="form-button">
           <button type="submit">Share</button>
           <button type="button" onClick={() => setShowAdd(!showAdd)}>
             Close

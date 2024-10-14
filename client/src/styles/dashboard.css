@@ -11,13 +11,14 @@
   font-size: larger;
 }
 
-.share-button {
+.form-button {
   display: flex;
   justify-content: space-evenly;
 }
 
 .separator {
   border-top: 4px solid black;
+  margin-top: 0.25rem;
 }
 
 .form-container {
@@ -28,6 +29,16 @@
 .form-container button {
   width: fit-content;
   align-self: center;
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+}
+
+.add-input {
+  padding-top: 0.25rem;
 }
 
 .modal-container {
