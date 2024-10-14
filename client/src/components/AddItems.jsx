@@ -1,14 +1,8 @@
 import PropTypes from "prop-types";
 
 import { Form, useParams } from "react-router-dom";
-// import { notifySuccess, notifyError } from "../services/utils";
 
 export default function AddItems({ showAdd, setShowAdd }) {
-  // if (status === 201) {
-  //   notifySuccess();
-  // } else {
-  //   notifyError();
-  // }
   const userId = useParams().id;
 
   if (!showAdd) {

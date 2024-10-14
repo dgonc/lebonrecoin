@@ -7,12 +7,16 @@ export default function Home() {
   console.info("depuis Home", items);
 
   return (
-    <section className="items-online-container">
-      {items.map((item) => (
-        <div key={item.id} className="item-card-container">
-          <ItemCard item={item} />
-        </div>
-      ))}
-    </section>
+    <>
+      <div className="separator-home" />
+      <section className="items-online-container">
+        {items.map((item) => (
+          <div key={item.id} className="item-card-container">
+            <ItemCard item={item} />
+          </div>
+        ))}
+      </section>
+      <div className="separator" />
+    </>
   );
 }
