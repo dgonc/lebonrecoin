@@ -12,7 +12,17 @@ export default function UserDashoard() {
   const items = useLoaderData();
 
   const [currentUrl, setCurrentUrl] = useState("");
-  const [selectItem, setSelectItem] = useState([]);
+  const [selectItem, setSelectItem] = useState({
+    name: "",
+    description: "",
+    price: "",
+    picture_1: "",
+    picture_2: "",
+    picture_3: "",
+    picture_4: "",
+    lastname: "",
+    firstname: "",
+  });
   const [showEdit, setShowEdit] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
 
