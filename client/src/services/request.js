@@ -30,9 +30,9 @@ export function getItemsByUser({ params }) {
     });
 }
 
-export function getItemByName({ search }) {
+export function getItemByName({ params }) {
   return axios
-    .get(`${import.meta.env.VITE_API_URL}/api/item/${search}`)
+    .get(`${import.meta.env.VITE_API_URL}/api/items/${params.search}`)
     .then((response) => response.data)
     .catch((error) => {
       console.error(error);

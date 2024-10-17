@@ -10,8 +10,6 @@ export default function Navbar() {
     setSearchName(event.target.value);
   };
 
-  console.info("depuis navbar", searchName);
-
   return (
     <>
       <Link to="/home" className="title">
@@ -27,9 +25,11 @@ export default function Navbar() {
         </button>
       </nav>
       <section className="search-bar-container">
-        <label htmlFor="search-bar">
-          <button type="submit">Search</button>
-        </label>
+        <Link to={`/items/${searchName}`}>
+          <label htmlFor="search-bar">
+            <button type="submit">Search</button>
+          </label>
+        </Link>
         <input type="text" id="search-bar" onChange={handleSearch} />
       </section>
     </>

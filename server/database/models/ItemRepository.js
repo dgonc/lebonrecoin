@@ -46,7 +46,7 @@ WHERE
     return rows;
   }
 
-  async readItem(name) {
+  async readItem(search) {
     // Execute the SQL SELECT query to retrieve a specific item by its ID
     const [rows] = await this.database.query(
       `SELECT item.id, item.name, item.description, item.price, item.picture_1, item.picture_2, item.picture_3, item.picture_4, item.publication_date, user.lastname, user.firstname, user.city, user.phone, user.email
@@ -54,7 +54,7 @@ FROM item
     INNER JOIN user ON user_id = user.id
 WHERE
     item.name LIKE ?;`,
-      [`%${name}%`]
+      [`%${search}%`]
     );
     return rows;
   }

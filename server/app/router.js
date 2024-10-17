@@ -16,7 +16,7 @@ router.get("/user", userActions.browse);
 
 // Route to get a specific item by ID
 router.get("/:id", itemActions.read);
-router.get("/item/:name", itemActions.searchItem);
+router.get("/items/:search", itemActions.searchItem);
 
 // Route to add a new item
 router.post("/", itemActions.add);
