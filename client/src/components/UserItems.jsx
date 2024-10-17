@@ -83,8 +83,16 @@ UserItems.propTypes = {
     })
   ).isRequired,
   currentUrl: PropTypes.string.isRequired,
+  selectItem: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    description: PropTypes.string,
+    price: PropTypes.string,
+    picture_1: PropTypes.string,
+    lastname: PropTypes.string,
+    firstname: PropTypes.string,
+  }).isRequired,
   setSelectItem: PropTypes.func.isRequired,
-  selectItem: PropTypes.arrayOf.isRequired,
   setShowEdit: PropTypes.func.isRequired,
   reloadData: PropTypes.func.isRequired,
 };
