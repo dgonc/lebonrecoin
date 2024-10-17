@@ -6,12 +6,14 @@ import Home from "./pages/Home";
 import App from "./App";
 import UserDashoard from "./pages/UserDashboard";
 import Login from "./pages/Login";
+import Search from "./pages/Search";
 import "./styles/home.css";
 import {
   getItems,
   getItemsByUser,
   getUsers,
   addItems,
+  getItemByName,
 } from "./services/request";
 
 const router = createBrowserRouter([
@@ -33,6 +35,11 @@ const router = createBrowserRouter([
         element: <UserDashoard />,
         loader: getItemsByUser,
         action: addItems,
+      },
+      {
+        path: "/items/:search",
+        element: <Search />,
+        loader: getItemByName,
       },
     ],
   },

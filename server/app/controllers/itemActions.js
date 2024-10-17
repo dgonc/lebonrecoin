@@ -37,10 +37,11 @@ const read = async (req, res, next) => {
 const searchItem = async (req, res, next) => {
   try {
     // Fetch a specific item from the database based on the provided ID
-    const items = await tables.item.readItem(req.params.name);
+    const items = await tables.item.readItem(req.params.search);
 
     // If the item is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the item in JSON format
+
     if (items == null) {
       res.sendStatus(404);
     } else {
